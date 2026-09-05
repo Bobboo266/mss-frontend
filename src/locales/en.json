@@ -1,0 +1,36 @@
+{
+  "landing": {
+    "comingSoon": "COMING SOON",
+    "tagline": "Engineering Meets Software.",
+    "description": "Egyptian personal software platform — selling engineering expertise before selling code.",
+    "footer": "© 2026 MSS HUB. All rights reserved."
+  },
+  "login": {
+    "signIn": "Sign In",
+    "email": "Email",
+    "password": "Password",
+    "emailPlaceholder": "test@mss-hub.com",
+    "passwordPlaceholder": "••••••••",
+    "signingIn": "Signing in...",
+    "loginFailed": "Login failed",
+    "footer": "© 2026 MSS HUB. All rights reserved."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome",
+    "admin": "Admin",
+    "logout": "Logout",
+    "totalProducts": "Total Products",
+    "totalCustomers": "Total Customers",
+    "totalOrders": "Total Orders",
+    "totalRevenue": "Total Revenue",
+    "recentActivity": "Recent Activity",
+    "noActivity": "No recent activity",
+    "type": "Type",
+    "code": "Code",
+    "description": "Description",
+    "amount": "Amount",
+    "status": "Status",
+    "loading": "Loading..."
+  }
+}

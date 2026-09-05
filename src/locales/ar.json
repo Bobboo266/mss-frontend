@@ -1,0 +1,36 @@
+{
+  "landing": {
+    "comingSoon": "قريباً",
+    "tagline": "الهندسة تلتقي بالبرمجيات.",
+    "description": "منصة برمجيات شخصية مصرية — تبيع الخبرة الهندسية قبل أن تبيع الكود.",
+    "footer": "© 2026 MSS HUB. جميع الحقوق محفوظة."
+  },
+  "login": {
+    "signIn": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "emailPlaceholder": "test@mss-hub.com",
+    "passwordPlaceholder": "••••••••",
+    "signingIn": "جاري تسجيل الدخول...",
+    "loginFailed": "فشل تسجيل الدخول",
+    "footer": "© 2026 MSS HUB. جميع الحقوق محفوظة."
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "welcome": "مرحباً",
+    "admin": "المدير",
+    "logout": "تسجيل الخروج",
+    "totalProducts": "إجمالي المنتجات",
+    "totalCustomers": "إجمالي العملاء",
+    "totalOrders": "إجمالي الطلبات",
+    "totalRevenue": "إجمالي الإيرادات",
+    "recentActivity": "النشاط الأخير",
+    "noActivity": "لا يوجد نشاط حديث",
+    "type": "النوع",
+    "code": "الكود",
+    "description": "الوصف",
+    "amount": "المبلغ",
+    "status": "الحالة",
+    "loading": "جاري التحميل..."
+  }
+}
