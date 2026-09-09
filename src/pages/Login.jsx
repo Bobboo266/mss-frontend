@@ -10,56 +10,31 @@ function Login({ onLogin }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('🚀 Starting login...');
-    
     try {
-      // FastAPI OAuth2 يتوقع form data مش JSON
       const formData = new URLSearchParams();
-      formData.append('username', email);  // مهم: username مش email
+      formData.append('username', email);
       formData.append('password', password);
 
+      // تم تعديل الرابط ليعمل على السيرفر الحي مباشرة
       const res = await axios.post(
-        'http://127.0.0.1:8001/api/v1/auth/login',
+        'https://mss-backend-production.up.railway.app/api/v1/auth/login',
         formData,
-        {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        }
+        { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
       );
-      
-      console.log('✅ Response:', res.data);
       
       const token = res.data.access_token;
       if (token) {
         localStorage.setItem('token', token);
-        console.log('✅ Token saved! Navigating...');
         if (onLogin) onLogin(token);
         navigate('/dashboard');
       }
     } catch (err) {
-      console.error('❌ Full error:', err);
-      console.error('❌ Error response:', err.response?.data);
-      
-      // تحويل الـ error object لنص عشان ما يظهرش خطأ React
-      let errorMsg = 'Login failed';
-      if (err.response?.data) {
-        const data = err.response.data;
-        if (typeof data === 'string') {
-          errorMsg = data;
-        } else if (data.detail) {
-          if (typeof data.detail === 'string') {
-            errorMsg = data.detail;
-          } else if (Array.isArray(data.detail)) {
-            errorMsg = data.detail.map(d => d.msg || JSON.stringify(d)).join(', ');
-          } else {
-            errorMsg = JSON.stringify(data.detail);
-          }
-        } else {
-          errorMsg = JSON.stringify(data);
-        }
+      let errorMsg = 'فشل تسجيل الدخول';
+      if (err.response?.data?.detail) {
+        errorMsg = typeof err.response.data.detail === 'string' 
+          ? err.response.data.detail 
+          : JSON.stringify(err.response.data.detail);
       }
-      console.error('❌ Error message:', errorMsg);
       setError(errorMsg);
     }
   };
@@ -70,7 +45,7 @@ function Login({ onLogin }) {
         <h2 style={{ textAlign: 'center', color: '#D4AF37', marginBottom: '40px' }}>Sign In</h2>
         
         {error && (
-          <div style={{ background: 'rgba(255,0,0,0.1)', border: '1px solid red', color: '#ff6666', padding: '12px', marginBottom: '20px', borderRadius: '4px' }}>
+          <div style={{ background: 'rgba(255,0,0,0.1)', border: '1px solid red', color: '#ff6666', padding: '12px', marginBottom: '20px', borderRadius: '4px', textAlign: 'center' }}>
             {error}
           </div>
         )}
@@ -78,30 +53,26 @@ function Login({ onLogin }) {
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: '20px' }}>
             <label style={{ display: 'block', color: '#888', marginBottom: '8px' }}>Email</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              style={{ width: '100%', padding: '12px', background: '#0a0a0a', border: '1px solid #333', borderRadius: '4px', color: '#fff' }}
-            />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required style={{ width: '100%', padding: '12px', background: '#0a0a0a', border: '1px solid #333', borderRadius: '4px', color: '#fff', boxSizing: 'border-box' }} />
           </div>
 
           <div style={{ marginBottom: '30px' }}>
             <label style={{ display: 'block', color: '#888', marginBottom: '8px' }}>Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              style={{ width: '100%', padding: '12px', background: '#0a0a0a', border: '1px solid #333', borderRadius: '4px', color: '#fff' }}
-            />
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required style={{ width: '100%', padding: '12px', background: '#0a0a0a', border: '1px solid #333', borderRadius: '4px', color: '#fff', boxSizing: 'border-box' }} />
           </div>
 
-          <button type="submit" style={{ width: '100%', padding: '14px', background: '#D4AF37', color: '#000', border: 'none', borderRadius: '4px', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer' }}>
+          <button type="submit" style={{ width: '100%', padding: '14px', background: '#D4AF37', color: '#000', border: 'none', borderRadius: '4px', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer', marginBottom: '20px' }}>
             Sign In
           </button>
         </form>
+
+        <div style={{ textAlign: 'center', color: '#555', margin: '20px 0', fontSize: '14px' }}>أو سجل الدخول عبر</div>
+
+        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+          <button style={{ flex: 1, padding: '10px', background: '#fff', color: '#000', border: '1px solid #333', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>Google</button>
+          <button style={{ flex: 1, padding: '10px', background: '#1877F2', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>Facebook</button>
+          <button style={{ flex: 1, padding: '10px', background: '#0A66C2', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>LinkedIn</button>
+        </div>
       </div>
     </div>
   );
