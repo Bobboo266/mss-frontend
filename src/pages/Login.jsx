@@ -65,12 +65,20 @@ function Login({ onLogin }) {
           </button>
         </form>
 
-        <div style={{ textAlign: 'center', color: '#555', margin: '20px 0', fontSize: '14px' }}>أو سجل الدخول عبر</div>
+        <div style={{ textAlign: 'center', color: '#555', margin: '30px 0 20px 0', fontSize: '14px', borderTop: '1px solid #333', paddingTop: '20px' }}>
+          أو سجل الدخول عبر
+        </div>
 
-        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-          <button style={{ flex: 1, padding: '10px', background: '#fff', color: '#000', border: '1px solid #333', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>Google</button>
-          <button style={{ flex: 1, padding: '10px', background: '#1877F2', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>Facebook</button>
-          <button style={{ flex: 1, padding: '10px', background: '#0A66C2', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>LinkedIn</button>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', justifyContent: 'center', alignItems: 'center' }}>
+          <button style={{ width: '100%', maxWidth: '300px', padding: '12px', background: '#4285F4', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }}>
+            تسجيل الدخول عبر Google
+          </button>
+          <button style={{ width: '100%', maxWidth: '300px', padding: '12px', background: '#1877F2', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }}>
+            تسجيل الدخول عبر Facebook
+          </button>
+          <button style={{ width: '100%', maxWidth: '300px', padding: '12px', background: '#0A66C2', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }}>
+            تسجيل الدخول عبر LinkedIn
+          </button>
         </div>
       </div>
     </div>
