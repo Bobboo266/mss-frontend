@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:8001',
+        target: 'http://   mss-backend-production.up.railway.app',
         changeOrigin: true,
         secure: false,
       }

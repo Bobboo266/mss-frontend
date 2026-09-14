@@ -16,7 +16,7 @@ export default function Products() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-        const response = await fetch('http://127.0.0.1:8001/api/v1/products', {
+        const response = await fetch('http://   mss-backend-production.up.railway.app/api/v1/products', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
