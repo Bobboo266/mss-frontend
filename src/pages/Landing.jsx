@@ -16,7 +16,7 @@ function Landing({ onLogin }) {
     try {
       // مهم جداً: نبعث email مش username
       const res = await axios.post(
-        'https://mss-backend-production.up.railway.app/api/v1/auth/login',
+        '/api/v1/auth/login',
         {
           email: email,  // ✅ email مش username
           password: password

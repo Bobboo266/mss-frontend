@@ -19,12 +19,12 @@ export default function Customers() {
           return;
         }
 
-        console.log('Fetching customers from https://mss-backend-production.up.railway.app/api/v1/customers...');
+        console.log('Fetching customers from /api/v1/customers...');
         
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
 
-        const response = await fetch('https://mss-backend-production.up.railway.app/api/v1/customers', {
+        const response = await fetch('/api/v1/customers', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,

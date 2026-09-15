@@ -18,11 +18,11 @@ export default function Agents() {
         const timeoutId = setTimeout(() => controller.abort(), 10000);
 
         const [agentsRes, summaryRes] = await Promise.all([
-          fetch('https://mss-backend-production.up.railway.app/api/v1/ai-agents/', {
+          fetch('/api/v1/ai-agents/', {
             headers: { 'Authorization': `Bearer ${token}` },
             signal: controller.signal
           }),
-          fetch('https://mss-backend-production.up.railway.app/api/v1/ai-agents/stats/summary', {
+          fetch('/api/v1/ai-agents/stats/summary', {
             headers: { 'Authorization': `Bearer ${token}` },
             signal: controller.signal
           })

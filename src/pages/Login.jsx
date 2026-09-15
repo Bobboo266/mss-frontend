@@ -16,7 +16,7 @@ function Login({ onLogin }) {
       formData.append('password', password);
 
       const res = await axios.post(
-        'https://mss-backend-production.up.railway.app/api/v1/auth/token',
+        '/api/v1/auth/token',
         formData,
         { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
       );

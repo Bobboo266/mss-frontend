@@ -16,7 +16,7 @@ export default function Invoices() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-        const response = await fetch('https://mss-backend-production.up.railway.app/api/v1/invoices', {
+        const response = await fetch('/api/v1/invoices', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
